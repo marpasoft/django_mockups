@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>LocalResearch</title>
+	
+	<link rel="stylesheet" href="{{ STATIC_URL }}skins/default.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{ STATIC_URL }}blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ STATIC_URL }}blueprint/plugins/buttons/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ STATIC_URL }}facebox/facebox.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ STATIC_URL }}blueprint/print.css" type="text/css" media="print"> 
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" href="{{ STATIC_URL }}blueprint/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
+	
+	<script src="{{ STATIC_URL }}lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="{{ STATIC_URL }}lib/polypage.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}lib/events.polypage.jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/cookie.polypage.jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/gui.polypage.jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/keyboard.polypage.jquery.js"></script>
+    <script src="{{ STATIC_URL }}facebox/facebox.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+          $('body').polypage();
+          $.facebox.settings.closeImage = '{{ STATIC_URL }}facebox/closelabel.gif';
+          $.facebox.settings.loadingImage = '{{ STATIC_URL }}facebox/loading.gif';
+          $('a[rel*=facebox]').facebox();
+		});
+	</script>
+    <style>
+        .box-border {
+           border: 1px solid #ccc;
+           padding: 1.4em
+        }
+        .horizontal li {
+           display: inline; 
+           padding: 0 8px;
+        }
+        .content {
+           min-height: 400px;
+        }
+        .center {
+           text-align: center;
+        }
+        .center .center-block {
+           margin-left: auto;
+           margin-right: auto;
+        }
+        .pp_Notes {
+            font-size: 11px;
+            line-height: 1.1;
+            font-weight: normal;
+            background: #ffc;
+            color: #000;
+            border: 1px solid #ccc;
+            padding: 0.4em;
+            text-align: left;
+            }
+            
+        .pp_Notes ol {
+            margin-left: 1.5em;
+            list-style-type: decimal;
+        }
+    </style>
+	
+</head>
+
+<body>
+
+<div class="container">
+    <div class="span-24">
+    {% block header %}
+    {% endblock %}
+    </div>
+    <div class="span-24 content append-bottom">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div class="span-24">
+    {% block footer %}
+    <ul class="horizontal">
+         <li><a href="#">Home</a></li>
+         <li><a href="#">About Us</a></li>
+         <li><a href="#">FAQs</a></li>
+         <li><a href="#">Contact</a></li>
+         <li><a href="#">Sitemap</a></li>
+    <ul>
+    {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>
